@@ -56,7 +56,7 @@ function renderListItems(){
                         <label class='${each.completed ? 'checkElement' :''}' style=color:${each.completed ?'white': 'gray'} for="${each.id}" id="para-${each.id}">${each?.value}</label>
                     </div>  
                      <div>
-                          <i class="fa-solid fa-pen delete" onclick="updateTheItem('${each?.id}')"  id='update-${each.id}' style="color: #B197FC; marginRight:30px"></i>
+                          <i class="fa-solid fa-pen delete" onclick="updateTheItem('${each?.id}')"  id='update-${each.id}' style="color: #B197FC; margin-right:10px; font-size:15px"></i>
                          <span onclick="deleteTheItem('${each?.id}')" class="delete" id='delete-${each.id}' style="color:red"> x </span>
                      </div>
                 </div>
@@ -69,9 +69,10 @@ btnEl.addEventListener('click',function(){
     if(inputEl.value.trim()){  
          if(editId){
              const Index = todoItems.findIndex(each => each.id === editId); 
-             if(Index){
+             if(Index !== -1){
                    todoItems[Index].value= inputEl.value 
              }
+             editId=''
          }
            
          else{
