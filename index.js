@@ -3,6 +3,7 @@ const unorderEl = document.getElementById('unorderedList');
 const btnEl = document.getElementById('button-element'); 
 let todoItems =[]     
 let editId = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedTodos = localStorage.getItem('todoList');
     if (savedTodos) {
@@ -23,6 +24,7 @@ window.changeToComplete=function(id){
      renderListItems()
 
 }
+
 window.deleteTheItem= function(id){  
     
    if(todoItems.length >= 1){
@@ -35,6 +37,7 @@ window.deleteTheItem= function(id){
          }   
    }
 }
+
 function updateTheItem(id){
     const Index= todoItems.findIndex(each => each.id === id)    
     if(Index !== -1){
@@ -45,6 +48,7 @@ function updateTheItem(id){
         renderListItems()
     }
 }
+
 function renderListItems(){      
      unorderEl.textContent='' 
      let AllListItems =''
@@ -65,6 +69,7 @@ function renderListItems(){
          unorderEl.innerHTML = AllListItems;
       document.getElementById('todoWrapper').style.display = 'block';
 }
+
 btnEl.addEventListener('click',function(){
     if(inputEl.value.trim()){  
          if(editId){
